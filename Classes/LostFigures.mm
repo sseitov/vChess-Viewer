@@ -43,6 +43,8 @@
 
 - (void)drawRect:(CGRect)rect {
 	
+	rect.origin.x += 20;
+	rect.size.width -= 20;
     CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	// create bubble clip path

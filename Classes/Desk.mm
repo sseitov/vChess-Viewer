@@ -27,41 +27,50 @@ NSString* const PlayPreviuoseNotification = @"PlayPreviuoseNotification";
 	delete currentGame;
 }
 
+- (void)awakeFromNib
+{
+	[self construct];
+}
+
 - (id)initWithFrame:(CGRect)frame {
 
 	if (self = [super initWithFrame:frame]) {
-		self.opaque = NO;
-		deskImage = [[UIImageView alloc] initWithFrame:CGRectMake(30, 0, 280, 280)];
-		deskImage.image = [UIImage imageNamed:@"ChessDesk.png"];
-		[self addSubview:deskImage];
-		
-		whiteLost = [[LostFigures alloc] initWithFrame:CGRectMake(5, 305, 20, 20) 
-										image:[UIImage imageNamed:@"WhiteCross.png"]];
-		[self addSubview:whiteLost];
-		
-		blackLost = [[LostFigures alloc] initWithFrame:CGRectMake(5, 325, 20, 20)
-										image:[UIImage imageNamed:@"BlackCross.png"]];
-		[self addSubview:blackLost];
-		
-		horzRule = [[DeskRule alloc] initHorizontalRule:YES withFrame:CGRectMake(30, 280, 280, 20)];
-		[self addSubview:horzRule];
-		
-		vertRule = [[DeskRule alloc] initHorizontalRule:NO withFrame:CGRectMake(10, 0, 20, 280)];
-		[self addSubview:vertRule];
-		
-		currentGame = new Game();
-		figures = [[NSMutableArray alloc] init];
-		for (int i=0; i<vchess::Game::POSITION_SIZE; i++) {
-			unsigned char cell = currentGame->positionAt(i);
-			if (cell > 0 && cell < 0xff) {
-				Figure *f = [[Figure alloc] initFigure:cell];
-				[self addSubview:f];
-				[self moveFigure:f to:[NSNumber numberWithInt:i]];
-				[figures addObject:f];
-			}
-		}
+		[self construct];
 	}
 	return self;
+}
+
+- (void)construct
+{
+	deskImage = [[UIImageView alloc] initWithFrame:CGRectMake(30, 0, 280, 280)];
+	deskImage.image = [UIImage imageNamed:@"ChessDesk.png"];
+	[self addSubview:deskImage];
+	
+	whiteLost = [[LostFigures alloc] initWithFrame:CGRectMake(5, 305, 20, 20)
+											 image:[UIImage imageNamed:@"white_cross"]];
+	[self addSubview:whiteLost];
+	
+	blackLost = [[LostFigures alloc] initWithFrame:CGRectMake(5, 325, 20, 20)
+											 image:[UIImage imageNamed:@"black_cross"]];
+	[self addSubview:blackLost];
+	
+	horzRule = [[DeskRule alloc] initHorizontalRule:YES withFrame:CGRectMake(30, 280, 280, 20)];
+	[self addSubview:horzRule];
+	
+	vertRule = [[DeskRule alloc] initHorizontalRule:NO withFrame:CGRectMake(10, 0, 20, 280)];
+	[self addSubview:vertRule];
+	
+	currentGame = new Game();
+	figures = [[NSMutableArray alloc] init];
+	for (int i=0; i<vchess::Game::POSITION_SIZE; i++) {
+		unsigned char cell = currentGame->positionAt(i);
+		if (cell > 0 && cell < 0xff) {
+			Figure *f = [[Figure alloc] initFigure:cell];
+			[self addSubview:f];
+			[self moveFigure:f to:[NSNumber numberWithInt:i]];
+			[figures addObject:f];
+		}
+	}
 }
 
 - (void)setGame:(vchess::Game*)game {

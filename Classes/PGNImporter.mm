@@ -116,7 +116,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PGNImporter);
 	if (!elements || elements.count < 2) {
 		elements = [gameText componentsSeparatedByString:@"\n\n"];
 	}
-	return (elements.count / 2);
+	return (int)(elements.count / 2);
 }
 
 - (int)addPGNFromDir:(NSString*)path toArray:(NSMutableArray*)catalog {

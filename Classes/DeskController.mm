@@ -17,6 +17,20 @@
 NSString* const SaveGameNotification = @"SaveGameNotification";
 NSString* const LoadGameNotification = @"LoadGameNotification";
 
+@interface DeskController ()
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *controlButtons;
+@property (weak, nonatomic) IBOutlet UILabel	*whiteName;
+@property (weak, nonatomic) IBOutlet UILabel	*blackName;
+@property (weak, nonatomic) IBOutlet Desk *desk;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpace;
+
+- (IBAction)controlEvent:(id)sender;
+- (IBAction)rotateDesk;
+- (IBAction)loadGame;
+
+@end
+
 @implementation DeskController
 
 + (NSString *)applicationDocumentsDirectory {
@@ -26,7 +40,12 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 - (void)viewDidLoad {
 	
     [super viewDidLoad];
-	NSLog(@"viewDidLoad");
+
+	if (floor(NSFoundationVersionNumber) < NSFoundationVersionNumber_iOS_7_0) {
+		_verticalSpace.constant = 54.0;
+	}
+	
+	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"marble.png"]];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handlePlayNext:) 
 												 name:PlayNextNotification object:nil];
@@ -37,47 +56,24 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLoadGame:) 
 												 name:LoadGameNotification object:nil];
 	
-	desk = [[Desk alloc] initWithFrame:CGRectMake(0, 2, 320, 345)];
-	[self.view addSubview:desk];
-	
-	controlButtons.hidden = YES;
-	whiteName.text = @"";
-	whiteName.numberOfLines = 2;
-	blackName.text = @"";
-	blackName.numberOfLines = 2;
-		
-	UIBarButtonItem *rotateButton = [[UIBarButtonItem alloc]
-									 initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
-									 target:self 
-										 action:@selector(rotateDesk)];
-	self.navigationItem.leftBarButtonItem = rotateButton;
-
-	UIBarButtonItem *loadButton = [[UIBarButtonItem alloc]
-									initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize 
-									target:self 
-									action:@selector(loadGame)];
-	self.navigationItem.rightBarButtonItem = loadButton;
-	
-}
-
-- (void)viewDidUnload {
-
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	desk = nil;
-    [super viewDidUnload];
+	_controlButtons.hidden = YES;
+	_whiteName.text = @"";
+	_whiteName.numberOfLines = 2;
+	_blackName.text = @"";
+	_blackName.numberOfLines = 2;
 }
 
 - (void)handlePlayNext:(NSNotification*)note {
 	
 	if ([self nextTurn] == NO) {
-		controlButtons.selectedSegmentIndex = PLAY_STOP;
+		_controlButtons.selectedSegmentIndex = PLAY_STOP;
 	}
 }
 
 - (void)handlePlayPreviouse:(NSNotification*)note {
 	
 	if ([self previouseTurn] == NO) {
-		controlButtons.selectedSegmentIndex = PLAY_STOP;
+		_controlButtons.selectedSegmentIndex = PLAY_STOP;
 	}
 }
 
@@ -121,12 +117,12 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 
 - (bool)nextTurn {
 	
-	return [desk turnForward];
+	return [_desk turnForward];
 }
 
 - (bool)previouseTurn {
 	
-	return [desk turnBack];
+	return [_desk turnBack];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -145,24 +141,24 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 	NSInteger index = control.selectedSegmentIndex;
 	switch (index) {
 		case PLAY_START:
-			desk.playMode = PLAY_BACKWARD;
+			_desk.playMode = PLAY_BACKWARD;
 			[self handlePlayPreviouse:NULL];
 			break;
 		case PLAY_PREV:
-			desk.playMode = NOPLAY;
+			_desk.playMode = NOPLAY;
 			[self previouseTurn];
-			controlButtons.selectedSegmentIndex = PLAY_STOP;
+			_controlButtons.selectedSegmentIndex = PLAY_STOP;
 			break;
 		case PLAY_STOP:
-			desk.playMode = NOPLAY;
+			_desk.playMode = NOPLAY;
 			break;
 		case PLAY_NEXT:
-			desk.playMode = NOPLAY;
+			_desk.playMode = NOPLAY;
 			[self nextTurn];
-			controlButtons.selectedSegmentIndex = PLAY_STOP;
+			_controlButtons.selectedSegmentIndex = PLAY_STOP;
 			break;
 		case PLAY_FINISH:
-			desk.playMode = PLAY_FORWARD;
+			_desk.playMode = PLAY_FORWARD;
 			[self handlePlayNext:NULL];
 			break;
 		default:
@@ -173,24 +169,21 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 - (void)startGame:(vchess::Game*)game {
 	
 	NSLog(@"startGame");
-	[desk setGame:game];
-	controlButtons.hidden = NO;
-	whiteName.text = [NSString stringWithUTF8String:game->white().data()];
-	blackName.text = [NSString stringWithUTF8String:game->black().data()];
+	[_desk setGame:game];
+	_controlButtons.hidden = NO;
+	_whiteName.text = [NSString stringWithUTF8String:game->white().data()];
+	_blackName.text = [NSString stringWithUTF8String:game->black().data()];
 }
 
-- (void)rotateDesk {
+- (IBAction)rotateDesk {
 	
-	[desk rotate];
+	[_desk rotate];
 }
 
-- (void)loadGame {
+- (IBAction)loadGame {
     
 	GameManager *gameManager = [[GameManager alloc] init];
 	[self.navigationController pushViewController:gameManager animated:TRUE];
-}
-
-- (void)playGame {
 }
 
 @end

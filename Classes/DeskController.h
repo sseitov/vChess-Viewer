@@ -22,15 +22,7 @@ enum CONTROL_BUTTON {
 extern NSString* const SaveGameNotification;
 extern NSString* const LoadGameNotification;
 
-@interface DeskController : UIViewController {
-
-	IBOutlet UISegmentedControl *controlButtons;
-	IBOutlet UILabel	*whiteName;
-	IBOutlet UILabel	*blackName;
-	Desk				*desk;
-}
-
-- (IBAction)controlEvent:(id)sender;
+@interface DeskController : UIViewController
 
 + (NSString *)applicationDocumentsDirectory;
 - (void)startGame:(vchess::Game*)game;

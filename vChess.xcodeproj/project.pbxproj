@@ -30,6 +30,8 @@
 		2CA42A7A1740E8990073E610 /* PGNImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2CA42A771740E8990073E610 /* PGNImporter.mm */; };
 		2CA42A7C1740E9580073E610 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CA42A7B1740E9580073E610 /* libz.dylib */; };
 		2CE082801A74E93300931AD0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE0827F1A74E93300931AD0 /* Images.xcassets */; };
+		2CE082821A74F8EF00931AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE082811A74F8EF00931AD0 /* Main.storyboard */; };
+		2CE082861A750E7E00931AD0 /* marble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE082851A750E7E00931AD0 /* marble.png */; };
 		B101294811D9E0550078C5F3 /* GameManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B101294611D9E0550078C5F3 /* GameManager.mm */; };
 		DA2E4AD8110F56EA00CAA1D0 /* BlackB.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E4AC0110F56EA00CAA1D0 /* BlackB.png */; };
 		DA2E4AD9110F56EA00CAA1D0 /* BlackK.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E4AC1110F56EA00CAA1D0 /* BlackK.png */; };
@@ -60,7 +62,6 @@
 		DA337F9F1244B3FC00CF546F /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA337F9E1244B3FC00CF546F /* game.cpp */; };
 		DA37CF23123BFA71000D07EF /* LostFigures.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA37CF22123BFA71000D07EF /* LostFigures.mm */; };
 		DA420DC6111DC26800AD0803 /* DeskController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA420DC5111DC26800AD0803 /* DeskController.xib */; };
-		DA4225D31112F39B00F72D3F /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = DA4225D21112F39B00F72D3F /* Background.png */; };
 		DA4226781113023700F72D3F /* ControlLast.png in Resources */ = {isa = PBXBuildFile; fileRef = DA4226761113023700F72D3F /* ControlLast.png */; };
 		DA4226791113023700F72D3F /* ControlFirst.png in Resources */ = {isa = PBXBuildFile; fileRef = DA4226771113023700F72D3F /* ControlFirst.png */; };
 		DA42267C1113024200F72D3F /* ControlPreviouse.png in Resources */ = {isa = PBXBuildFile; fileRef = DA42267A1113024200F72D3F /* ControlPreviouse.png */; };
@@ -69,8 +70,6 @@
 		DA4227321113160C00F72D3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4227311113160C00F72D3F /* QuartzCore.framework */; };
 		DA55FE9111142F3A002DCD04 /* ControlRotate.png in Resources */ = {isa = PBXBuildFile; fileRef = DA55FE9011142F3A002DCD04 /* ControlRotate.png */; };
 		DA769FFE110EF96300A1589A /* ChessDesk.png in Resources */ = {isa = PBXBuildFile; fileRef = DA769FFC110EF96300A1589A /* ChessDesk.png */; };
-		DA76A015110F05B300A1589A /* BlackCross.png in Resources */ = {isa = PBXBuildFile; fileRef = DA76A013110F05B300A1589A /* BlackCross.png */; };
-		DA76A016110F05B300A1589A /* WhiteCross.png in Resources */ = {isa = PBXBuildFile; fileRef = DA76A014110F05B300A1589A /* WhiteCross.png */; };
 		DA76A056110F0F0800A1589A /* DeskRule.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA76A055110F0F0800A1589A /* DeskRule.mm */; };
 		DA7EB20D123245BB00E7399D /* ControlStop.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7EB20C123245BB00E7399D /* ControlStop.png */; };
 		DAACAC0F12573D2000F65EC3 /* MasterLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAACAC0D12573D2000F65EC3 /* MasterLoader.mm */; };
@@ -116,6 +115,8 @@
 		2CA42A771740E8990073E610 /* PGNImporter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PGNImporter.mm; sourceTree = "<group>"; };
 		2CA42A7B1740E9580073E610 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2CE0827F1A74E93300931AD0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = vChess/Images.xcassets; sourceTree = "<group>"; };
+		2CE082811A74F8EF00931AD0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2CE082851A750E7E00931AD0 /* marble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = marble.png; path = Images/marble.png; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* vChess_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vChess_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* vChess-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "vChess-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B101294511D9E0550078C5F3 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
@@ -153,7 +154,6 @@
 		DA37CF21123BFA71000D07EF /* LostFigures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LostFigures.h; sourceTree = "<group>"; };
 		DA37CF22123BFA71000D07EF /* LostFigures.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LostFigures.mm; sourceTree = "<group>"; };
 		DA420DC5111DC26800AD0803 /* DeskController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeskController.xib; sourceTree = "<group>"; };
-		DA4225D21112F39B00F72D3F /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Images/Background.png; sourceTree = "<group>"; };
 		DA4226761113023700F72D3F /* ControlLast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ControlLast.png; path = Images/Desk/ControlLast.png; sourceTree = "<group>"; };
 		DA4226771113023700F72D3F /* ControlFirst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ControlFirst.png; path = Images/Desk/ControlFirst.png; sourceTree = "<group>"; };
 		DA42267A1113024200F72D3F /* ControlPreviouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ControlPreviouse.png; path = Images/Desk/ControlPreviouse.png; sourceTree = "<group>"; };
@@ -163,8 +163,6 @@
 		DA4227311113160C00F72D3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		DA55FE9011142F3A002DCD04 /* ControlRotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ControlRotate.png; path = Images/Desk/ControlRotate.png; sourceTree = "<group>"; };
 		DA769FFC110EF96300A1589A /* ChessDesk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChessDesk.png; path = Images/Desk/ChessDesk.png; sourceTree = "<group>"; };
-		DA76A013110F05B300A1589A /* BlackCross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BlackCross.png; path = Images/Desk/BlackCross.png; sourceTree = "<group>"; };
-		DA76A014110F05B300A1589A /* WhiteCross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WhiteCross.png; path = Images/Desk/WhiteCross.png; sourceTree = "<group>"; };
 		DA76A054110F0F0800A1589A /* DeskRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeskRule.h; sourceTree = "<group>"; };
 		DA76A055110F0F0800A1589A /* DeskRule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeskRule.mm; sourceTree = "<group>"; };
 		DA7EB20C123245BB00E7399D /* ControlStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ControlStop.png; path = Images/Desk/ControlStop.png; sourceTree = "<group>"; };
@@ -199,10 +197,10 @@
 				DA337F6712448CD400CF546F /* vchess */,
 				DA667AB4123CC72700944F6D /* Manager */,
 				DA667AB2123CC6E200944F6D /* Desk */,
-				1D3623240D0F684500981E51 /* vChessAppDelegate.h */,
-				1D3623250D0F684500981E51 /* vChessAppDelegate.mm */,
 				DAB63300111DB81700A30240 /* DeskController.h */,
 				DAB63301111DB81700A30240 /* DeskController.mm */,
+				1D3623240D0F684500981E51 /* vChessAppDelegate.h */,
+				1D3623250D0F684500981E51 /* vChessAppDelegate.mm */,
 				2C599F5E16DFE4F4000A1668 /* SynthesizeSingleton.h */,
 			);
 			path = Classes;
@@ -234,6 +232,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8D1107310486CEB800E47090 /* vChess-Info.plist */,
 				32CA4F630368D1EE00C91783 /* vChess_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -243,17 +242,17 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CE082851A750E7E00931AD0 /* marble.png */,
+				2CE082811A74F8EF00931AD0 /* Main.storyboard */,
 				2CE0827F1A74E93300931AD0 /* Images.xcassets */,
 				2C55DDC9173BE40B001CEE8D /* Masters.sqlite */,
 				2C0CB3F0173CDE96006D9EE9 /* ecoCodes.plist */,
 				2C55DDCA173BE40B001CEE8D /* packages.plist */,
 				DA2E4ABB110F56CE00CAA1D0 /* Figures */,
 				DA769FE9110EF94400A1589A /* Desk */,
-				DA4225D21112F39B00F72D3F /* Background.png */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				DA420DC5111DC26800AD0803 /* DeskController.xib */,
 				DAACAC1612573D7600F65EC3 /* MasterLoader.xib */,
-				8D1107310486CEB800E47090 /* vChess-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -392,8 +391,6 @@
 				DA42267B1113024200F72D3F /* ControlNext.png */,
 				DA4226761113023700F72D3F /* ControlLast.png */,
 				DA4226771113023700F72D3F /* ControlFirst.png */,
-				DA76A013110F05B300A1589A /* BlackCross.png */,
-				DA76A014110F05B300A1589A /* WhiteCross.png */,
 				DA769FFC110EF96300A1589A /* ChessDesk.png */,
 			);
 			name = Desk;
@@ -461,8 +458,6 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2CE082801A74E93300931AD0 /* Images.xcassets in Resources */,
 				DA769FFE110EF96300A1589A /* ChessDesk.png in Resources */,
-				DA76A015110F05B300A1589A /* BlackCross.png in Resources */,
-				DA76A016110F05B300A1589A /* WhiteCross.png in Resources */,
 				DA2E4AD8110F56EA00CAA1D0 /* BlackB.png in Resources */,
 				DA2E4AD9110F56EA00CAA1D0 /* BlackK.png in Resources */,
 				DA2E4ADA110F56EA00CAA1D0 /* BlackN.png in Resources */,
@@ -479,6 +474,7 @@
 				DA2E4AE5110F56EA00CAA1D0 /* SmallWhiteK.png in Resources */,
 				DA2E4AE6110F56EA00CAA1D0 /* SmallWhiteN.png in Resources */,
 				DA2E4AE7110F56EA00CAA1D0 /* SmallWhiteP.png in Resources */,
+				2CE082821A74F8EF00931AD0 /* Main.storyboard in Resources */,
 				DA2E4AE8110F56EA00CAA1D0 /* SmallWhiteQ.png in Resources */,
 				DA2E4AE9110F56EA00CAA1D0 /* SmallWhiteR.png in Resources */,
 				DA2E4AEA110F56EA00CAA1D0 /* WhiteB.png in Resources */,
@@ -487,7 +483,6 @@
 				DA2E4AED110F56EA00CAA1D0 /* WhiteP.png in Resources */,
 				DA2E4AEE110F56EA00CAA1D0 /* WhiteQ.png in Resources */,
 				DA2E4AEF110F56EA00CAA1D0 /* WhiteR.png in Resources */,
-				DA4225D31112F39B00F72D3F /* Background.png in Resources */,
 				DA4226781113023700F72D3F /* ControlLast.png in Resources */,
 				DA4226791113023700F72D3F /* ControlFirst.png in Resources */,
 				DA42267C1113024200F72D3F /* ControlPreviouse.png in Resources */,
@@ -497,6 +492,7 @@
 				DA7EB20D123245BB00E7399D /* ControlStop.png in Resources */,
 				DAACAC1712573D7600F65EC3 /* MasterLoader.xib in Resources */,
 				2C55DDCB173BE40C001CEE8D /* Masters.sqlite in Resources */,
+				2CE082861A750E7E00931AD0 /* marble.png in Resources */,
 				2C55DDCC173BE40C001CEE8D /* packages.plist in Resources */,
 				2C0CB3F1173CDE96006D9EE9 /* ecoCodes.plist in Resources */,
 			);

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zto-dd-4KZ">
+    <dependencies>
+        <deployment version="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="s9o-jn-vK3">
+            <objects>
+                <navigationController id="Zto-dd-4KZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="dFd-gL-RBF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="MEc-g5-cLZ" kind="relationship" relationship="rootViewController" id="dcg-GO-qLe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SV9-Q2-GrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="529" y="283"/>
+        </scene>
+        <!--vChess Viewer-->
+        <scene sceneID="zl3-Pw-25u">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="MEc-g5-cLZ" customClass="DeskController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YbJ-2g-Ci9"/>
+                        <viewControllerLayoutGuide type="bottom" id="SUN-V0-sBQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TSu-Qg-usg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jph-ZX-QBb" customClass="Desk">
+                                <rect key="frame" x="0.0" y="74" width="320" height="345"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="dwV-2z-j4U"/>
+                                    <constraint firstAttribute="height" constant="345" id="rLw-qn-Kp3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jph-ZX-QBb" firstAttribute="top" secondItem="YbJ-2g-Ci9" secondAttribute="bottom" constant="10" id="2rC-vy-aX9"/>
+                            <constraint firstAttribute="centerX" secondItem="Jph-ZX-QBb" secondAttribute="centerX" id="MX4-C6-3CP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="vChess Viewer" id="jqb-Kh-uFQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="2gg-dg-iRs">
+                            <connections>
+                                <action selector="rotateDesk" destination="MEc-g5-cLZ" id="jrF-Dm-cet"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Rmm-qE-DmI">
+                            <connections>
+                                <action selector="loadGame" destination="MEc-g5-cLZ" id="k19-jl-8F7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="desk" destination="Jph-ZX-QBb" id="Ah1-EU-XvN"/>
+                        <outlet property="verticalSpace" destination="2rC-vy-aX9" id="jEu-SE-huh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h4v-jB-Wka" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="939" y="283"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

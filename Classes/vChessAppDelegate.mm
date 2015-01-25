@@ -13,7 +13,6 @@
 @implementation vChessAppDelegate
 
 @synthesize window = _window;
-@synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,8 +20,6 @@
 	[[StorageManager sharedStorageManager] managedObjectContext];
 	[[StorageManager sharedStorageManager] initUserPackages];
 	
-    [self.window addSubview:self.navigationController.view];
-    [self.window makeKeyAndVisible];
 	return YES;
 }
 
