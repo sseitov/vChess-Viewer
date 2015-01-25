@@ -31,6 +31,7 @@
 		2CE082801A74E93300931AD0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE0827F1A74E93300931AD0 /* Images.xcassets */; };
 		2CE082821A74F8EF00931AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE082811A74F8EF00931AD0 /* Main.storyboard */; };
 		2CE082861A750E7E00931AD0 /* marble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE082851A750E7E00931AD0 /* marble.png */; };
+		2CE0828B1A754EAE00931AD0 /* ChessDesk.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE0828A1A754EAE00931AD0 /* ChessDesk.png */; };
 		B101294811D9E0550078C5F3 /* GameManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B101294611D9E0550078C5F3 /* GameManager.mm */; };
 		DA2E4AD8110F56EA00CAA1D0 /* BlackB.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E4AC0110F56EA00CAA1D0 /* BlackB.png */; };
 		DA2E4AD9110F56EA00CAA1D0 /* BlackK.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E4AC1110F56EA00CAA1D0 /* BlackK.png */; };
@@ -62,7 +63,6 @@
 		DA37CF23123BFA71000D07EF /* LostFigures.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA37CF22123BFA71000D07EF /* LostFigures.mm */; };
 		DA4226A7111308B600F72D3F /* Figure.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA4226A6111308B600F72D3F /* Figure.mm */; };
 		DA4227321113160C00F72D3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4227311113160C00F72D3F /* QuartzCore.framework */; };
-		DA769FFE110EF96300A1589A /* ChessDesk.png in Resources */ = {isa = PBXBuildFile; fileRef = DA769FFC110EF96300A1589A /* ChessDesk.png */; };
 		DA76A056110F0F0800A1589A /* DeskRule.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA76A055110F0F0800A1589A /* DeskRule.mm */; };
 		DAACAC0F12573D2000F65EC3 /* MasterLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAACAC0D12573D2000F65EC3 /* MasterLoader.mm */; };
 		DAACAC1712573D7600F65EC3 /* MasterLoader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAACAC1612573D7600F65EC3 /* MasterLoader.xib */; };
@@ -108,6 +108,7 @@
 		2CE0827F1A74E93300931AD0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = vChess/Images.xcassets; sourceTree = "<group>"; };
 		2CE082811A74F8EF00931AD0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2CE082851A750E7E00931AD0 /* marble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = marble.png; path = Images/marble.png; sourceTree = "<group>"; };
+		2CE0828A1A754EAE00931AD0 /* ChessDesk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChessDesk.png; path = Images/ChessDesk.png; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* vChess_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vChess_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* vChess-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "vChess-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B101294511D9E0550078C5F3 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
@@ -147,7 +148,6 @@
 		DA4226A5111308B600F72D3F /* Figure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Figure.h; sourceTree = "<group>"; };
 		DA4226A6111308B600F72D3F /* Figure.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Figure.mm; sourceTree = "<group>"; };
 		DA4227311113160C00F72D3F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
-		DA769FFC110EF96300A1589A /* ChessDesk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChessDesk.png; path = Images/Desk/ChessDesk.png; sourceTree = "<group>"; };
 		DA76A054110F0F0800A1589A /* DeskRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeskRule.h; sourceTree = "<group>"; };
 		DA76A055110F0F0800A1589A /* DeskRule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeskRule.mm; sourceTree = "<group>"; };
 		DAACAC0C12573D2000F65EC3 /* MasterLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterLoader.h; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 			children = (
 				DA2E4ABB110F56CE00CAA1D0 /* Figures */,
 				2CE082851A750E7E00931AD0 /* marble.png */,
-				DA769FFC110EF96300A1589A /* ChessDesk.png */,
+				2CE0828A1A754EAE00931AD0 /* ChessDesk.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -432,7 +432,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE082801A74E93300931AD0 /* Images.xcassets in Resources */,
-				DA769FFE110EF96300A1589A /* ChessDesk.png in Resources */,
 				DA2E4AD8110F56EA00CAA1D0 /* BlackB.png in Resources */,
 				DA2E4AD9110F56EA00CAA1D0 /* BlackK.png in Resources */,
 				DA2E4ADA110F56EA00CAA1D0 /* BlackN.png in Resources */,
@@ -461,6 +460,7 @@
 				DAACAC1712573D7600F65EC3 /* MasterLoader.xib in Resources */,
 				2C55DDCB173BE40C001CEE8D /* Masters.sqlite in Resources */,
 				2CE082861A750E7E00931AD0 /* marble.png in Resources */,
+				2CE0828B1A754EAE00931AD0 /* ChessDesk.png in Resources */,
 				2C55DDCC173BE40C001CEE8D /* packages.plist in Resources */,
 				2C0CB3F1173CDE96006D9EE9 /* ecoCodes.plist in Resources */,
 			);
