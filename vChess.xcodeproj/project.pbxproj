@@ -66,7 +66,6 @@
 		DA4227321113160C00F72D3F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4227311113160C00F72D3F /* QuartzCore.framework */; };
 		DA76A056110F0F0800A1589A /* DeskRule.mm in Sources */ = {isa = PBXBuildFile; fileRef = DA76A055110F0F0800A1589A /* DeskRule.mm */; };
 		DAACAC0F12573D2000F65EC3 /* MasterLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAACAC0D12573D2000F65EC3 /* MasterLoader.mm */; };
-		DAACAC1712573D7600F65EC3 /* MasterLoader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAACAC1612573D7600F65EC3 /* MasterLoader.xib */; };
 		DAB63303111DB81700A30240 /* DeskController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAB63301111DB81700A30240 /* DeskController.mm */; };
 /* End PBXBuildFile section */
 
@@ -155,7 +154,6 @@
 		DA76A055110F0F0800A1589A /* DeskRule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeskRule.mm; sourceTree = "<group>"; };
 		DAACAC0C12573D2000F65EC3 /* MasterLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterLoader.h; sourceTree = "<group>"; };
 		DAACAC0D12573D2000F65EC3 /* MasterLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MasterLoader.mm; sourceTree = "<group>"; };
-		DAACAC1612573D7600F65EC3 /* MasterLoader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterLoader.xib; sourceTree = "<group>"; };
 		DAB63300111DB81700A30240 /* DeskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeskController.h; sourceTree = "<group>"; };
 		DAB63301111DB81700A30240 /* DeskController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DeskController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,7 +235,6 @@
 				2C55DDC9173BE40B001CEE8D /* Masters.sqlite */,
 				2C0CB3F0173CDE96006D9EE9 /* ecoCodes.plist */,
 				2C55DDCA173BE40B001CEE8D /* packages.plist */,
-				DAACAC1612573D7600F65EC3 /* MasterLoader.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -462,7 +459,6 @@
 				DA2E4AED110F56EA00CAA1D0 /* WhiteP.png in Resources */,
 				DA2E4AEE110F56EA00CAA1D0 /* WhiteQ.png in Resources */,
 				DA2E4AEF110F56EA00CAA1D0 /* WhiteR.png in Resources */,
-				DAACAC1712573D7600F65EC3 /* MasterLoader.xib in Resources */,
 				2C55DDCB173BE40C001CEE8D /* Masters.sqlite in Resources */,
 				2CE082861A750E7E00931AD0 /* marble.png in Resources */,
 				2CE0828B1A754EAE00931AD0 /* ChessDesk.png in Resources */,
