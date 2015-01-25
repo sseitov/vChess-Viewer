@@ -8,22 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterLoader : UIViewController <UIPickerViewDelegate,
-UIPickerViewDataSource, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MasterLoader : UIViewController
+
+@property (strong, nonatomic) NSArray	*mMasterEco;
+
+/*
 {
 	
 	IBOutlet UIPickerView	*mPickerView;
 	IBOutlet UITableView	*mGameTable;
 	
-	UITextField			*mSearchBar;
+	UITextField				*mSearchBar;
 	
-	NSDictionary			*mEcoCodes;
-	NSDictionary			*mInfo;
-	NSArray				*mMasterEco;
-	NSMutableArray			*mGames;
 }
 
 @property (strong, nonatomic) NSArray		*mMasterEco;
 @property (strong, nonatomic) UIPickerView	*mPickerView;
+*/
 
 @end

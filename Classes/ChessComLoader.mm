@@ -43,11 +43,13 @@ static NSString *serverURL = @"http://www.chess.com/downloads/database+of+games"
 	
 	self.navigationItem.hidesBackButton = YES;
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(done)];
-	webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+	CGRect r = self.view.bounds;
+	r.size.width *= 2;
+	webView = [[UIWebView alloc] initWithFrame:r];
 	webView.delegate = self;
 	webView.backgroundColor = [UIColor clearColor];
-	webView.scalesPageToFit = YES;
-	webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//	webView.scalesPageToFit = NO;
+//	webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.view addSubview:webView];
 	
 	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:serverURL]]];

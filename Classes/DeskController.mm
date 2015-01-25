@@ -10,6 +10,8 @@
 #import "Desk.h"
 #import "Figure.h"
 #import "GameManager.h"
+#import "HeaderView.h"
+
 #include "vchess/turn.h"
 #include "StorageManager.h"
 #include "ChessGame.h"
@@ -20,13 +22,11 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 @interface DeskController ()
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *controlButtons;
-@property (weak, nonatomic) IBOutlet UILabel	*whiteName;
-@property (weak, nonatomic) IBOutlet UILabel	*blackName;
 @property (weak, nonatomic) IBOutlet Desk *desk;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerVerticalSpace;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rotateBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *fileBtn;
-@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet HeaderView *headerView;
 
 - (IBAction)controlEvent:(id)sender;
 - (IBAction)rotateDesk;
@@ -44,6 +44,7 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 	
     [super viewDidLoad];
 
+	self.title = @"vChess Viewer";
 	if (floor(NSFoundationVersionNumber) < NSFoundationVersionNumber_iOS_7_0) {
 		_headerVerticalSpace.constant = 44.0;
 	} else {
@@ -176,19 +177,23 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 	[_desk setGame:game];
 	_controlButtons.enabled = YES;
 	_headerView.hidden = NO;
-	_whiteName.text = [NSString stringWithUTF8String:game->white().data()];
-	_blackName.text = [NSString stringWithUTF8String:game->black().data()];
+	_headerView.whiteName = [NSString stringWithUTF8String:game->white().data()];
+	_headerView.blackName = [NSString stringWithUTF8String:game->black().data()];
+	[_headerView setNeedsDisplay];
 }
 
-- (IBAction)rotateDesk {
-	
+- (IBAction)rotateDesk
+{	
 	[_desk rotate];
 }
 
-- (IBAction)loadGame {
-    
-	GameManager *gameManager = [[GameManager alloc] init];
-	[self.navigationController pushViewController:gameManager animated:TRUE];
+- (IBAction)loadGame
+{
+	[self performSegueWithIdentifier:@"openArchive" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
 }
 
 @end

@@ -16,21 +16,20 @@
 
 #pragma mark View lifecycle
 
-- (id)init {
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
 	
-	if (self == [super initWithStyle:UITableViewStyleGrouped]) {
-		self.title = @"Archive";
-		self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
-		[self updateRightButtons:NO];
-		self.masterPackages = [[NSArray alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"packages" withExtension:@"plist"]];
-	}
-	return self;
+	self.title = @"Archive";
+	
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+	[self updateRightButtons:NO];
+	self.masterPackages = [[NSArray alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"packages" withExtension:@"plist"]];
 }
 
-- (void)updateRightButtons:(BOOL)bEdit {
-
-	UIBarButtonItem *d = [[UIBarButtonItem alloc] initWithTitle:@"Download" style:UIBarButtonItemStyleBordered target:self action:@selector(loadArchive)];
+- (void)updateRightButtons:(BOOL)bEdit
+{
+	UIBarButtonItem *d = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(loadArchive)];
 	if (bEdit) {
 		UIBarButtonItem *e = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(editTable)];
 		[self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:e, nil] animated:YES];
@@ -42,16 +41,6 @@
 			[self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:d, nil] animated:YES];
 		}
 	}
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)cancel {
-
-	[self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark Table view data source
@@ -73,11 +62,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	static NSString* CellIdentifier = @"PackageCellIdentifier";
-	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	if (cell == nil) {
+//	static NSString* CellIdentifier = @"masterCell";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"masterCell" forIndexPath:indexPath];
+//	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+/*	if (cell == nil) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-	}
+	}*/
 	
 	cell.textLabel.textColor = [UIColor blackColor];
 	cell.textLabel.text = indexPath.section ? [self.masterPackages objectAtIndex:indexPath.row] : [[StorageManager sharedStorageManager].userPackages objectAtIndex:indexPath.row];
@@ -127,12 +117,7 @@
 	[self updateRightButtons:NO];
 	[self.navigationController popViewControllerAnimated:YES];
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-
-	return (section ? 80 : 0);
-}
-
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	NSString *package = indexPath.section ? [self.masterPackages objectAtIndex:indexPath.row] : [[StorageManager sharedStorageManager].userPackages objectAtIndex:indexPath.row];
@@ -142,6 +127,7 @@
 	[manager.mPickerView reloadAllComponents];
 	[self.navigationController pushViewController:manager animated:YES];
 }
+*/
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
@@ -160,6 +146,15 @@
 		[[StorageManager sharedStorageManager] removePackage:package];
 		[aTableView reloadData];
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+	NSString *package = indexPath.section ? [self.masterPackages objectAtIndex:indexPath.row] : [[StorageManager sharedStorageManager].userPackages objectAtIndex:indexPath.row];
+	MasterLoader *manager = [segue destinationViewController];
+	manager.title = package;
+	manager.mMasterEco = [[StorageManager sharedStorageManager] ecoInPackage:package];
 }
 
 @end

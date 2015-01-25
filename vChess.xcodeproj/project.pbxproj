@@ -32,6 +32,7 @@
 		2CE082821A74F8EF00931AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE082811A74F8EF00931AD0 /* Main.storyboard */; };
 		2CE082861A750E7E00931AD0 /* marble.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE082851A750E7E00931AD0 /* marble.png */; };
 		2CE0828B1A754EAE00931AD0 /* ChessDesk.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE0828A1A754EAE00931AD0 /* ChessDesk.png */; };
+		2CE082911A757E9B00931AD0 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE082901A757E9B00931AD0 /* HeaderView.m */; };
 		B101294811D9E0550078C5F3 /* GameManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B101294611D9E0550078C5F3 /* GameManager.mm */; };
 		DA2E4AD8110F56EA00CAA1D0 /* BlackB.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E4AC0110F56EA00CAA1D0 /* BlackB.png */; };
 		DA2E4AD9110F56EA00CAA1D0 /* BlackK.png in Resources */ = {isa = PBXBuildFile; fileRef = DA2E4AC1110F56EA00CAA1D0 /* BlackK.png */; };
@@ -109,6 +110,8 @@
 		2CE082811A74F8EF00931AD0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2CE082851A750E7E00931AD0 /* marble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = marble.png; path = Images/marble.png; sourceTree = "<group>"; };
 		2CE0828A1A754EAE00931AD0 /* ChessDesk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ChessDesk.png; path = Images/ChessDesk.png; sourceTree = "<group>"; };
+		2CE0828F1A757E9B00931AD0 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		2CE082901A757E9B00931AD0 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* vChess_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vChess_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* vChess-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "vChess-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B101294511D9E0550078C5F3 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				DA667AB2123CC6E200944F6D /* Desk */,
 				DAB63300111DB81700A30240 /* DeskController.h */,
 				DAB63301111DB81700A30240 /* DeskController.mm */,
+				2CE0828F1A757E9B00931AD0 /* HeaderView.h */,
+				2CE082901A757E9B00931AD0 /* HeaderView.m */,
 				1D3623240D0F684500981E51 /* vChessAppDelegate.h */,
 				1D3623250D0F684500981E51 /* vChessAppDelegate.mm */,
 				2C599F5E16DFE4F4000A1668 /* SynthesizeSingleton.h */,
@@ -483,6 +488,7 @@
 				DA37CF23123BFA71000D07EF /* LostFigures.mm in Sources */,
 				DA337F6A12448CF900CF546F /* turn.cpp in Sources */,
 				DA337F9F1244B3FC00CF546F /* game.cpp in Sources */,
+				2CE082911A757E9B00931AD0 /* HeaderView.m in Sources */,
 				DAACAC0F12573D2000F65EC3 /* MasterLoader.mm in Sources */,
 				2C55DDC4173BE34C001CEE8D /* StorageManager.mm in Sources */,
 				2C55DDC8173BE3D1001CEE8D /* vChessModel.xcdatamodeld in Sources */,

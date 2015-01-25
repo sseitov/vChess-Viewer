@@ -12,72 +12,56 @@
 #import "DeskController.h"
 #include <string>
 
+@interface MasterLoader () <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSDictionary	*mEcoCodes;
+@property (strong, nonatomic) NSDictionary	*mInfo;
+@property (strong, nonatomic) NSMutableArray *mGames;
+
+@property (weak, nonatomic) IBOutlet UITableView *gameTable;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UITextField *searchBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpace;
+
+@end
+
 @implementation MasterLoader
 
-@synthesize mMasterEco;
-@synthesize mPickerView;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-		
-		mEcoCodes = [[NSDictionary alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ecoCodes" withExtension:@"plist"]];
-
-		mGames = [[NSMutableArray alloc] init];
-		mSearchBar = [[UITextField alloc] initWithFrame:CGRectMake(0, 7, 60, 30)];
-		mSearchBar.borderStyle = UITextBorderStyleRoundedRect;
-		mSearchBar.delegate = self;
-		mSearchBar.placeholder = @"ECO";
-		mSearchBar.textAlignment = UITextAlignmentCenter;
-		mSearchBar.font = [UIFont fontWithName:@"Helvetica-Bold" size:14];
-		mSearchBar.backgroundColor = [UIColor whiteColor];
-		mSearchBar.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-		mSearchBar.keyboardType = UIKeyboardTypeASCIICapable;
-		mSearchBar.returnKeyType = UIReturnKeySearch;
-		mSearchBar.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mSearchBar];
-    }
-    return self;
-}
-
-- (void)viewDidLoad {
-	
+- (void)viewDidLoad
+{
 	[super viewDidLoad];
-	if (mMasterEco && [mMasterEco count] > 0) {		
-		NSString *eco = [mMasterEco objectAtIndex:0];
-		[mGames removeAllObjects];
-		[mGames addObjectsFromArray:[[StorageManager sharedStorageManager] gamesWithEco:eco inPackage:self.title]];
-		[mGameTable reloadData];
+	
+	if (floor(NSFoundationVersionNumber) < NSFoundationVersionNumber_iOS_7_0) {
+		_verticalSpace.constant = 44.0;
+	} else {
+		_gameTable.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
+	}
+	
+	_mEcoCodes = [[NSDictionary alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"ecoCodes" withExtension:@"plist"]];
+	_mGames = [[NSMutableArray alloc] init];
+	[_pickerView reloadAllComponents];
+
+	if (_mMasterEco && [_mMasterEco count] > 0) {
+		NSString *eco = [_mMasterEco objectAtIndex:0];
+		[_mGames removeAllObjects];
+		[_mGames addObjectsFromArray:[[StorageManager sharedStorageManager] gamesWithEco:eco inPackage:self.title]];
+		[_gameTable reloadData];
 	}
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	
 	[super viewWillAppear:animated];
-	[mGames removeAllObjects];
-	if (mMasterEco.count > 0) {
-		NSString *eco = [mMasterEco objectAtIndex:[mPickerView selectedRowInComponent:0]];
-		[mGames addObjectsFromArray:[[StorageManager sharedStorageManager] gamesWithEco:eco inPackage:self.title]];
+	[_mGames removeAllObjects];
+	if (_mMasterEco.count > 0) {
+		NSString *eco = [_mMasterEco objectAtIndex:[_pickerView selectedRowInComponent:0]];
+		[_mGames addObjectsFromArray:[[StorageManager sharedStorageManager] gamesWithEco:eco inPackage:self.title]];
 	} else {
-		mPickerView.hidden = YES;
-		mGameTable.frame = self.view.bounds;
-		[mGames addObjectsFromArray:[[StorageManager sharedStorageManager] gamesInPackage:self.title]];
+		_pickerView.hidden = YES;
+		_gameTable.frame = self.view.bounds;
+		[_mGames addObjectsFromArray:[[StorageManager sharedStorageManager] gamesInPackage:self.title]];
 	}
-	[mGameTable reloadData];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)didReceiveMemoryWarning {
-	
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-	
-    [super viewDidUnload];
+	[_gameTable reloadData];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
@@ -87,7 +71,7 @@
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
 	
-	return [mMasterEco count];
+	return [_mMasterEco count];
 }
 
 - (UIView *)pickerView:(UIPickerView *)thePickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -95,8 +79,8 @@
 	if (view == nil) {
 		view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 32)];
 	}
-	NSString *code = [mMasterEco objectAtIndex:row];
-	NSString *val = [mEcoCodes valueForKey:code];
+	NSString *code = [_mMasterEco objectAtIndex:row];
+	NSString *val = [_mEcoCodes valueForKey:code];
 	
 	UILabel *label1 = (UILabel*)[view viewWithTag:1];
 	if (label1 == nil) {
@@ -139,27 +123,22 @@
 	return view;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-	
-	return 0;
-}
-
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
 	
-	NSString *eco = [mMasterEco objectAtIndex:row];
-	[mGames removeAllObjects];
-	[mGames addObjectsFromArray:[[StorageManager sharedStorageManager] gamesWithEco:eco inPackage:self.title]];
-	[mGameTable reloadData];
+	NSString *eco = [_mMasterEco objectAtIndex:row];
+	[_mGames removeAllObjects];
+	[_mGames addObjectsFromArray:[[StorageManager sharedStorageManager] gamesWithEco:eco inPackage:self.title]];
+	[_gameTable reloadData];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	
-	[mSearchBar resignFirstResponder];
+	[_searchBar resignFirstResponder];
 	std::string searchText([[textField.text uppercaseString] UTF8String]);
-	NSInteger index = [mMasterEco indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop){
+	NSInteger index = [_mMasterEco indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop){
 		NSString *str = (NSString*)obj;
 		std::string text([str UTF8String]);
-		if (idx >= [mMasterEco count]) {
+		if (idx >= [_mMasterEco count]) {
 			*stop = YES;
 		} else {
 			if (text >= searchText) {
@@ -170,12 +149,12 @@
 		return NO;
 	}];
 	if (index != NSNotFound) {
-		textField.text = [mMasterEco objectAtIndex:index];
-		[mPickerView selectRow:index inComponent:0 animated:YES];
-		[self pickerView:mPickerView didSelectRow:index inComponent:0];
+		textField.text = [_mMasterEco objectAtIndex:index];
+		[_pickerView selectRow:index inComponent:0 animated:YES];
+		[self pickerView:_pickerView didSelectRow:index inComponent:0];
 	} else {
 		textField.text = @"";
-		[mPickerView selectRow:([mMasterEco count] - 1) inComponent:0 animated:YES];
+		[_pickerView selectRow:([_mMasterEco count] - 1) inComponent:0 animated:YES];
 	}
 	
 	return YES;
@@ -190,12 +169,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	
-	return [mGames count];
+	return [_mGames count];
 }
 
 - (void)configureCell:(UITableViewCell*)cell forIndex:(int)index {
 	
-	NSDictionary *game = [mGames objectAtIndex:index];
+	NSDictionary *game = [_mGames objectAtIndex:index];
 	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 2, 220, 20)];
 	label.text = [game valueForKey:@"White"];
 	label.textAlignment = UITextAlignmentCenter;
@@ -229,7 +208,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	ChessGame *game = [mGames objectAtIndex:[indexPath indexAtPosition:1]];
+	ChessGame *game = [_mGames objectAtIndex:[indexPath indexAtPosition:1]];
 	[[NSNotificationCenter defaultCenter] postNotificationName:LoadGameNotification object:game];
 }
 
