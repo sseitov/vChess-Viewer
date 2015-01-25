@@ -20,7 +20,7 @@ static int vSplit(const std::string &s, char delim, std::vector<std::string> &el
     while (std::getline(ss, item, delim)) {
         elems.push_back(item);
     }
-    return elems.size();
+    return (int)elems.size();
 }
 
 namespace vchess {
@@ -113,7 +113,7 @@ namespace vchess {
 	{
 		figure = (color) ? CWHITE : CBLACK;
 		
-		int end = str.length() - 1;
+		int end = (int)str.length() - 1;
 		if (str[end] == '+') {
 			turnType |= CHECK;
 			str.erase(end);
@@ -155,7 +155,7 @@ namespace vchess {
 	}
 	
 	int Turn::parse(std::string text) {
-		int index = text.length() - 1;
+		int index = (int)text.length() - 1;
 		if (index < 1) {
 			throw std::logic_error("Error parse " + turnText);
 		}

@@ -221,7 +221,7 @@
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	[self configureCell:cell forIndex:[indexPath indexAtPosition:1]];
+	[self configureCell:cell forIndex:(int)[indexPath indexAtPosition:1]];
 	return cell;
 }
 

@@ -142,7 +142,7 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 - (IBAction)controlEvent:(id)sender {
 	
 	UISegmentedControl* control = (UISegmentedControl*)sender;
-	int index = control.selectedSegmentIndex;
+	NSInteger index = control.selectedSegmentIndex;
 	switch (index) {
 		case PLAY_START:
 			desk.playMode = PLAY_BACKWARD;
