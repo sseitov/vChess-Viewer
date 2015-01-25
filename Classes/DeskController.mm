@@ -23,7 +23,10 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 @property (weak, nonatomic) IBOutlet UILabel	*whiteName;
 @property (weak, nonatomic) IBOutlet UILabel	*blackName;
 @property (weak, nonatomic) IBOutlet Desk *desk;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalSpace;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerVerticalSpace;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rotateBtn;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *fileBtn;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
 - (IBAction)controlEvent:(id)sender;
 - (IBAction)rotateDesk;
@@ -42,7 +45,11 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
     [super viewDidLoad];
 
 	if (floor(NSFoundationVersionNumber) < NSFoundationVersionNumber_iOS_7_0) {
-		_verticalSpace.constant = 54.0;
+		_headerVerticalSpace.constant = 44.0;
+	} else {
+		_rotateBtn.tintColor = [UIColor whiteColor];
+		_fileBtn.tintColor = [UIColor whiteColor];
+		_controlButtons.tintColor = [UIColor whiteColor];
 	}
 	
 	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"marble.png"]];
@@ -56,11 +63,8 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLoadGame:) 
 												 name:LoadGameNotification object:nil];
 	
-	_controlButtons.hidden = YES;
-	_whiteName.text = @"";
-	_whiteName.numberOfLines = 2;
-	_blackName.text = @"";
-	_blackName.numberOfLines = 2;
+	_controlButtons.enabled = NO;;
+	_headerView.hidden = YES;
 }
 
 - (void)handlePlayNext:(NSNotification*)note {
@@ -170,7 +174,8 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 	
 	NSLog(@"startGame");
 	[_desk setGame:game];
-	_controlButtons.hidden = NO;
+	_controlButtons.enabled = YES;
+	_headerView.hidden = NO;
 	_whiteName.text = [NSString stringWithUTF8String:game->white().data()];
 	_blackName.text = [NSString stringWithUTF8String:game->black().data()];
 }
