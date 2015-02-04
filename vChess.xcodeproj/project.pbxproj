@@ -566,8 +566,8 @@
 				HEADER_SEARCH_PATHS = /opt/local/include;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "8acde7d6-f9da-46e4-9766-6ff2a271e908";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8acde7d6-f9da-46e4-9766-6ff2a271e908";
+				PROVISIONING_PROFILE = "6a7cbe9f-f699-4cad-becb-1708c9d366e0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6a7cbe9f-f699-4cad-becb-1708c9d366e0";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;

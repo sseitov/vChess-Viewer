@@ -68,7 +68,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jph-ZX-QBb" customClass="Desk">
-                                <rect key="frame" x="0.0" y="94" width="320" height="345"/>
+                                <rect key="frame" x="0.0" y="179" width="320" height="345"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="GGQ-9q-9q0"/>
@@ -78,14 +78,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AYn-IN-2El" firstAttribute="top" secondItem="YbJ-2g-Ci9" secondAttribute="bottom" id="66H-uZ-w4P"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6sl-xR-ujQ" secondAttribute="trailing" constant="-16" id="7oI-EX-rxn"/>
-                            <constraint firstItem="AYn-IN-2El" firstAttribute="leading" secondItem="TSu-Qg-usg" secondAttribute="leading" id="83v-f1-4Lg"/>
-                            <constraint firstAttribute="trailing" secondItem="AYn-IN-2El" secondAttribute="trailing" id="ChI-Pb-958"/>
-                            <constraint firstItem="6sl-xR-ujQ" firstAttribute="leading" secondItem="TSu-Qg-usg" secondAttribute="leadingMargin" constant="-16" id="JwX-Bd-lax"/>
-                            <constraint firstItem="SUN-V0-sBQ" firstAttribute="top" secondItem="6sl-xR-ujQ" secondAttribute="bottom" id="Lcw-hs-LHq"/>
-                            <constraint firstAttribute="centerX" secondItem="Jph-ZX-QBb" secondAttribute="centerX" id="XLE-BX-LHM"/>
-                            <constraint firstItem="Jph-ZX-QBb" firstAttribute="top" secondItem="AYn-IN-2El" secondAttribute="bottom" id="rjI-Mz-gUy"/>
+                            <constraint firstAttribute="centerX" secondItem="Jph-ZX-QBb" secondAttribute="centerX" id="0a3-sA-xyg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6sl-xR-ujQ" secondAttribute="trailing" constant="-16" id="OTt-ab-vOJ"/>
+                            <constraint firstItem="6sl-xR-ujQ" firstAttribute="top" secondItem="Jph-ZX-QBb" secondAttribute="bottom" id="PYX-lX-ZBN"/>
+                            <constraint firstItem="SUN-V0-sBQ" firstAttribute="top" secondItem="6sl-xR-ujQ" secondAttribute="bottom" id="ZmD-xI-bUP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AYn-IN-2El" secondAttribute="trailing" constant="-16" id="gGm-h3-kv3"/>
+                            <constraint firstItem="AYn-IN-2El" firstAttribute="top" secondItem="YbJ-2g-Ci9" secondAttribute="bottom" id="rrJ-Rj-l9o"/>
+                            <constraint firstItem="6sl-xR-ujQ" firstAttribute="leading" secondItem="TSu-Qg-usg" secondAttribute="leadingMargin" constant="-16" id="tWM-YG-w4A"/>
+                            <constraint firstItem="AYn-IN-2El" firstAttribute="leading" secondItem="TSu-Qg-usg" secondAttribute="leadingMargin" constant="-16" id="vnJ-Wp-nYX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jqb-Kh-uFQ">
@@ -104,7 +104,6 @@
                         <outlet property="controlButtons" destination="8NU-J1-ffP" id="7nH-0W-A5p"/>
                         <outlet property="desk" destination="Jph-ZX-QBb" id="Ah1-EU-XvN"/>
                         <outlet property="fileBtn" destination="Rmm-qE-DmI" id="z8e-L1-3Tw"/>
-                        <outlet property="headerVerticalSpace" destination="66H-uZ-w4P" id="Wyy-pt-IIY"/>
                         <outlet property="headerView" destination="AYn-IN-2El" id="DJH-xv-EnY"/>
                         <outlet property="rotateBtn" destination="2gg-dg-iRs" id="T4e-eI-Orx"/>
                         <segue destination="iD9-mZ-4oj" kind="push" identifier="openArchive" id="52e-kP-MuW"/>

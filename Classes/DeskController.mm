@@ -64,8 +64,8 @@ NSString* const LoadGameNotification = @"LoadGameNotification";
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLoadGame:) 
 												 name:LoadGameNotification object:nil];
 	
-	_controlButtons.enabled = NO;;
-	_headerView.hidden = YES;
+	_controlButtons.enabled = NO;
+//	_headerView.hidden = YES;
 }
 
 - (void)handlePlayNext:(NSNotification*)note {

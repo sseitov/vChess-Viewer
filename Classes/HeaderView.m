@@ -74,6 +74,12 @@ typedef enum {
 
 @implementation HeaderView
 
+- (void)awakeFromNib
+{
+	_whiteName = @"White";
+	_blackName = @"Black";
+}
+
 - (void)drawRect:(CGRect)rect
 {
     CGRect rw = CGRectMake(0, 0, rect.size.width/2, rect.size.height);
